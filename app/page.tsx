@@ -19,15 +19,17 @@ export default async function PageIndex() {
   const roles = await getData();
 
   return (
-    <main className="flex flex-wrap gap-2 p-24">
+    <main className="px-24 py-4">
+      <h1 className="flex items-center justify-center mb-4 text-3xl font-bold">役職リスト</h1>
+      <div className="flex flex-wrap gap-2">
       {roles.map(({ id, name, iconUrl, oneline, side }) => (
         <Link key={id} href={`/role/${id}`}>
           <Card className="w-[300px] hover:bg-gray-50 transition duration-300 ease-out cursor-pointer">
             <CardContent className="p-0">
               <HoverCard>
                 <HoverCardTrigger asChild className="p-3">
-                  <div className="flex justify-start items-center space-x-2">
-                    <Avatar className="object-cover object-center h-16 w-16">
+                  <div className="flex items-center justify-start space-x-3">
+                    <Avatar className="object-cover object-center w-16 h-16 rounded-none">
                       <AvatarImage src={iconUrl} />
                       <AvatarFallback>{id}</AvatarFallback>
                     </Avatar>
@@ -39,10 +41,10 @@ export default async function PageIndex() {
                     </div>
                   </div>
                 </HoverCardTrigger>
-                <HoverCardContent className="w-80">
+                <HoverCardContent className="w-90">
                   <div className="space-y-2">
-                    <h4 className="text-sm font-semibold">{name}</h4>
-                    <p className="text-sm whitespace-pre-line leading-relaxed">
+                    <h4 className="flex items-center gap-2 text-sm font-bold">{name} <span className='text-xs font-thin text-gray-400'>——</span> <span className="text-sm">{id}</span></h4>
+                    <p className="text-base leading-relaxed whitespace-pre-line">
                       {oneline}
                     </p>
                   </div>
@@ -52,6 +54,7 @@ export default async function PageIndex() {
           </Card>
         </Link>
       ))}
+      </div>
     </main>
   );
 }

@@ -1,6 +1,7 @@
 import './globals.css';
 import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
+import Link from 'next/link';
 
 const noto = Noto_Sans_JP({
   weight: ['400', '600', '700'],
@@ -19,7 +20,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={noto.className}>{children}</body>
+      <body className={noto.className}>
+        <div className='flex items-center justify-center py-6'>
+          <Link href="/"><p className='text-2xl font-bold'>Feign 情報局</p></Link>
+        </div>
+        {children}
+      </body>
     </html>
   );
 }
