@@ -20,7 +20,7 @@ export default async function PageIndex() {
 
   return (
     <main className="px-24 py-4">
-      <h1 className="flex items-center justify-center mb-4 text-3xl font-bold">役職リスト</h1>
+      <h1 className="flex items-center justify-center mb-6 text-3xl font-bold">役職リスト<span className="ml-1 text-sm font-normal">(総役職数: {roles.length})</span></h1>
       <div className="flex flex-wrap gap-2">
       {roles.map(({ id, name, iconUrl, oneline, side }) => (
         <Link key={id} href={`/role/${id}`}>

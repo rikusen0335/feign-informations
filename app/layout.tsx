@@ -21,8 +21,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={noto.className}>
-        <div className='flex items-center justify-center py-6'>
-          <Link href="/"><p className='text-2xl font-bold'>Feign 情報局</p></Link>
+        <div className="pt-8 pb-12">
+          <div className='flex items-center justify-center mb-3'>
+            <Link href="/"><p className='text-2xl font-bold'>Feign 情報局</p></Link>
+          </div>
+          <div className='flex items-center justify-center gap-4'>
+            <Link href="/" className="hover:underline">トップ</Link>
+            <Link href="/qa" className="hover:underline">よくある質問</Link>
+            <Link href="/reference" className="hover:underline">情報ソースなど</Link>
+          </div>
         </div>
         {children}
       </body>
