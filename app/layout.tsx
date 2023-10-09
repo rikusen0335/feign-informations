@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
 import Link from 'next/link';
+import Favicon from '/public/Metadata/favicon.ico';
 
 const noto = Noto_Sans_JP({
   weight: ['400', '600', '700'],
@@ -11,6 +12,9 @@ const noto = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: 'Feign 情報局',
   description: '人狼ゲーム Feign（フェイン）の役職などを詳しく、見やすく書いたサイトです',
+  icons: [
+    { rel: 'icon', url: Favicon.src }
+  ]
 };
 
 export default function RootLayout({
