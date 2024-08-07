@@ -1,10 +1,4 @@
-const Link = ({ title, href }: { title: string, href: string }) => {
-  return (
-    <a href={href} className="hover:underline">
-      {title}
-    </a>
-  );
-}
+import { Link } from "@/components/ui/link";
 
 export default async function PageQA() {
   return (

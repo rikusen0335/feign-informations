@@ -117,6 +117,19 @@ export default async function PageRoleDetail({
               )}
             </div>
           </div>
+          <div className="flex items-center mb-5">
+            <p className="mr-2 text-lg font-semibold">同時に動く役職:</p>
+            <div className='flex flex-wrap space-x-3'>
+              {sameMove.map((role) => (
+                <MoveRole key={id} {...role} />
+              ))}
+              {sameMove.length === 0 && (
+                <p className="text-base leading-relaxed whitespace-pre-line text-neutral-400">
+                  なし
+                </p>
+              )}
+            </div>
+          </div>
           <p className="text-base leading-relaxed whitespace-pre-line">
             {description}
           </p>
