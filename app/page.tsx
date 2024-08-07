@@ -21,12 +21,13 @@ export default async function PageIndex() {
   return (
     <main className="px-24 py-4">
       <h1 className="flex items-center justify-center mb-6 text-3xl font-bold">役職リスト<span className="ml-1 text-sm font-normal">(総役職数: {roles.length})</span></h1>
-      <div className="flex flex-wrap gap-2">
+      <p className="flex items-center justify-center mb-6 text-xl font-bold text-red-500">注意：動く順番は必ずしも正確ではない可能性があります！</p>
+      <div className="flex flex-wrap justify-center gap-2">
       {roles.map(({ id, name, iconUrl, oneline, side }) => (
         <Link key={id} href={`/role/${id}`}>
-          <Card className="w-[300px] hover:bg-gray-50 transition duration-300 ease-out cursor-pointer">
+          <Card className="w-[400px] hover:bg-gray-50 transition duration-300 ease-out cursor-pointer">
             <CardContent className="p-0">
-              <HoverCard>
+              <HoverCard openDelay={200}>
                 <HoverCardTrigger asChild className="p-3">
                   <div className="flex items-center justify-start space-x-3">
                     <Avatar className="object-cover object-center w-16 h-16 rounded-none">

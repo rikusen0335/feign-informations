@@ -20,7 +20,7 @@ async function getData({ id }: { id: string }) {
 }
 
 const MoveRole = ({ id, name, iconUrl, side, oneline}: Role) => (
-  <HoverCard key={id} openDelay={500}>
+  <HoverCard key={id} openDelay={200}>
     <HoverCardTrigger asChild>
       <NextLink href={`/role/${id}`}>
         <div className="flex items-center justify-start space-x-2">
@@ -64,7 +64,7 @@ export default async function PageRoleDetail({
       </main>
     );
 
-  const { id, name, description, iconUrl, side } = role;
+  const { id, name, description, iconUrl, side, confirmed } = role;
 
   return (
     <main className="flex flex-col items-center justify-between min-h-screen px-24 py-4">
@@ -117,21 +117,18 @@ export default async function PageRoleDetail({
               )}
             </div>
           </div>
-          <div className="flex items-center mb-5">
-            <p className="mr-2 text-lg font-semibold">同時に動く役職:</p>
-            <div className='flex flex-wrap space-x-3'>
-              {sameMove.map((role) => (
-                <MoveRole key={id} {...role} />
-              ))}
-              {sameMove.length === 0 && (
-                <p className="text-base leading-relaxed whitespace-pre-line text-neutral-400">
-                  なし
-                </p>
-              )}
+          {confirmed &&
+            <div className="flex flex-col mb-5">
+              <p className="mr-2 text-lg font-semibold">確定情報:</p>
+              <div className='flex flex-wrap space-x-3 text-red-500'>
+                <p>{confirmed}</p>
+              </div>
             </div>
-          </div>
+          }
           <p className="text-base leading-relaxed whitespace-pre-line">
-            {description}
+            {description.map(({ text, imageSrc, alt }, idx) => (
+              text ? <p key={idx}>{text}</p> : <img key={idx} src={imageSrc} alt={alt} />
+            ))}
           </p>
         </div>
       </div>
