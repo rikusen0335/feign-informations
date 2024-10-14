@@ -31,6 +31,13 @@ export default function RootLayout({
     <html lang="en">
       <body className={noto.className}>
         <div className="pt-8 pb-12">
+          <div className="flex items-center justify-center mb-8">
+            <a href="https://twitter.com/RikuS3n">
+              <p className="text-sm hover:underline">
+                お問い合わせはこちらから
+              </p>
+            </a>
+          </div>
           <div className='flex items-center justify-center mb-3'>
             <Link href="/"><p className='text-2xl font-bold'>Feign 情報局</p></Link>
           </div>
