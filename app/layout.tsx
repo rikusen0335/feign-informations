@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={noto.className}>
-        <div className="pt-8 pb-12">
+        <div className="pt-1 pb-12">
           <div className="flex items-center justify-center mb-8">
             <a href="https://twitter.com/RikuS3n">
               <p className="text-sm hover:underline">
